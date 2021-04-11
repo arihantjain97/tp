@@ -4,13 +4,14 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Description in the address book.
+ * Represents a Description in the wardrobe.
  * Guarantees: immutable; name is valid as declared in {@link #isValidDescriptionName(String)}
  */
 public class Description {
 
-    public static final String MESSAGE_CONSTRAINTS = "Description names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    public static final String MESSAGE_CONSTRAINTS = "Description names should be alphanumeric and a maximum"
+            + " of 20 characters long";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9 ]{1,20}+$";
 
     public final String descriptionName;
 

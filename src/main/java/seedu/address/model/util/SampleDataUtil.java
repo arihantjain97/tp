@@ -4,46 +4,51 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import seedu.address.model.AddressBook;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyWardrobe;
+import seedu.address.model.Wardrobe;
 import seedu.address.model.description.Description;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Size;
+import seedu.address.model.garment.Colour;
+import seedu.address.model.garment.DressCode;
+import seedu.address.model.garment.Garment;
+import seedu.address.model.garment.LastUse;
+import seedu.address.model.garment.Name;
+import seedu.address.model.garment.Size;
+import seedu.address.model.garment.Type;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code Wardrobe} with sample data.
  */
 public class SampleDataUtil {
-    public static Person[] getSamplePersons() {
-        return new Person[] {
-            new Person(new Name("Alex Yeoh"), new Size("34"), new Email("alexyeoh@example.com"),
-                new Address("Blk 30 Geylang Street 29, #06-40"),
-                getDescriptionSet("friends")),
-            new Person(new Name("Bernice Yu"), new Size("29"), new Email("berniceyu@example.com"),
-                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
-                getDescriptionSet("colleagues", "friends")),
-            new Person(new Name("Charlotte Oliveiro"), new Size("26"), new Email("charlotte@example.com"),
-                new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
-                getDescriptionSet("neighbours")),
-            new Person(new Name("David Li"), new Size("43"), new Email("lidavid@example.com"),
-                new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                getDescriptionSet("family")),
-            new Person(new Name("Irfan Ibrahim"), new Size("44"), new Email("irfan@example.com"),
-                new Address("Blk 47 Tampines Street 20, #17-35"),
-                getDescriptionSet("classmates")),
-            new Person(new Name("Roy Balakrishnan"), new Size("35"), new Email("royb@example.com"),
-                new Address("Blk 45 Aljunied Street 85, #11-31"),
-                getDescriptionSet("colleagues"))
+    public static Garment[] getSampleGarments() {
+        return new Garment[] {
+            new Garment(new Name("Blazer"), new Size("34"), new Colour("black"),
+                new DressCode("formal"), new Type("upper"),
+                getDescriptionSet("home", "missing button"), new LastUse("Never")),
+            new Garment(new Name("Dress Shirt"), new Size("29"), new Colour("white"),
+                new DressCode("formal"), new Type("upper"),
+                getDescriptionSet("home", "wrinkled"), new LastUse("2021-04-01")),
+            new Garment(new Name("Jeans"), new Size("29"), new Colour("blue"),
+                new DressCode("Casual"), new Type("lower"),
+                getDescriptionSet("school", "stained", "torn"), new LastUse("2021-03-30")),
+            new Garment(new Name("Adidas Shoes"), new Size("26"), new Colour("orange"),
+                new DressCode("active"), new Type("footwear"),
+                getDescriptionSet("school", "sole worn out"), new LastUse("2021-03-29")),
+            new Garment(new Name("Faculty Shirt"), new Size("43"), new Colour("purple"),
+                new DressCode("casual"), new Type("upper"),
+                getDescriptionSet("school", "SOC"), new LastUse("2021-03-28")),
+            new Garment(new Name("Dress Shoes"), new Size("44"), new Colour("brown"),
+                new DressCode("formal"), new Type("footwear"),
+                getDescriptionSet("home", "needs polishing"), new LastUse("2021-03-27")),
+            new Garment(new Name("Track Pants"), new Size("35"), new Colour("white"),
+                new DressCode("active"), new Type("lower"),
+                getDescriptionSet("home", "loose"), new LastUse("2021-03-26"))
         };
     }
 
-    public static ReadOnlyAddressBook getSampleAddressBook() {
-        AddressBook sampleAb = new AddressBook();
-        for (Person samplePerson : getSamplePersons()) {
-            sampleAb.addPerson(samplePerson);
+    public static ReadOnlyWardrobe getSampleWardrobe() {
+        Wardrobe sampleAb = new Wardrobe();
+        for (Garment sampleGarment : getSampleGarments()) {
+            sampleAb.addGarment(sampleGarment);
         }
         return sampleAb;
     }
